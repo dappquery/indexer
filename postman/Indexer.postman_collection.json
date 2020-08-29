@@ -1,0 +1,37 @@
+{
+	"info": {
+		"_postman_id": "ebb1c69b-a414-45c8-9f89-bf543611de74",
+		"name": "Indexer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Indexer Server",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query  {\n\nsubgraphs {\n    id\n    name\n    currentVersion {\n     deployment {\n            id,\n            latestEthereumBlockNumber,\n            earliestEthereumBlockNumber,\n            entityCount,\n            network,\n            nodeId,\n            synced,\n            health,\n            failed,\n            fatalError {\n                id,\n                message,\n                blockNumber,\n                handler\n            },\n            nonFatalErrors {\n                id,\n                message\n            }\n    }\n    }\n  }\n\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/subgraphs",
+					"protocol": "https",
+					"host": [
+						"indexer",
+						"dappquery",
+						"com"
+					],
+					"path": [
+						"subgraphs"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
